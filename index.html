@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tryk for en flad</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 30px 10px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-bottom: 5px;
+      font-size: 1.8rem;
+    }
+    #counter {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #ff3366;
+      font-weight: bold;
+      text-shadow: 0 0 5px #ff3366;
+    }
+    video {
+      width: 600px;  /* mindre bredde - passer til de fleste skærme uden scroll */
+      max-width: 90vw;
+      border: 4px solid #ff3366;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff3366;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tryk for en flad 👋</h1>
+  <div id="counter">Flade givet: 0</div>
+  <video id="slapVideo" src="slap.mp4" preload="auto"></video>
+
+  <script>
+    const video = document.getElementById('slapVideo');
+    const counter = document.getElementById('counter');
+    let slapCount = 0;
+
+    video.addEventListener('click', () => {
+      slapCount++;
+      counter.textContent = `Flade givet: ${slapCount}`;
+      video.currentTime = 0;
+      video.play();
+    });
+  </script>
+</body>
+</html>
